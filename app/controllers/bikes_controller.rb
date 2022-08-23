@@ -1,6 +1,6 @@
 class BikesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
-  before_action :find_bike, only: :show
+  before_action :find_bike, only: %i[show edit update]
 
   def index
     @bikes = Bike.all
@@ -27,6 +27,8 @@ class BikesController < ApplicationController
   end
 
   def update
+    @bike.update(params_bike)
+    redirect_to bike_path(@bike)
   end
 
   def destroy
