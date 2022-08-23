@@ -1,8 +1,4 @@
 Rails.application.routes.draw do
-  get 'reviews/new'
-  get 'reviews/create'
-  get 'reviews/show'
-  get 'reviews/destroy'
   get 'bookings/accept'
   get 'bookings/reject'
   devise_for :users
@@ -14,7 +10,7 @@ Rails.application.routes.draw do
 
   resources :bikes do
     resources :bookings, only: [:new, :create] do
-      resources :reviews, only: [:new, :create]
+      resources :reviews, only: [:new, :create, :destroy, :show]
     end
   end
 end
