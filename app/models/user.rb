@@ -4,6 +4,7 @@ class User < ApplicationRecord
   has_many  :bikes
   has_many  :bookings
   has_many  :reviews
+  has_one_attached :photo
 
   validates :username, presence: true
   validates :email, presence: true
