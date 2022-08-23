@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_23_094916) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_23_142536) do
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -49,7 +50,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_23_094916) do
     t.string "name"
     t.text "description"
     t.string "model"
-    t.string "picture_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id", null: false
@@ -64,6 +64,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_23_094916) do
     t.string "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "total_price"
     t.index ["bike_id"], name: "index_bookings_on_bike_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
@@ -88,7 +89,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_23_094916) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "username"
-    t.string "avatar_url"
     t.text "description"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
