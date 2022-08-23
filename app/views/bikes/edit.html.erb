@@ -1,15 +1,4 @@
 <h1>Bikes#edit</h1>
 <p>Find me in app/views/bikes/edit.html.erb</p>
 
-<%# <%= render "form", bike: @bike %>
-
-<%= simple_form_for @bike do |f| %>
-  <%= f.input :name %>
-  <%= f.input :category %>
-  <%= f.input :model %>
-  <%= f.input :location %>
-  <%= f.input :description %>
-  <%= f.input :price_per_day %>
-  <%= f.input :photo, as: :file %>
-  <%= f.submit %>
-<% end %>
+<%= render "form", bike: @bike %>
