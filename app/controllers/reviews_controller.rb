@@ -1,6 +1,6 @@
 class ReviewsController < ApplicationController
   before_action :set_review, only: [:destroy]
-  before_action :set_booking, only: [:new, :create, :destroy]
+  before_action :set_booking, only: [:new, :create]
   before_action :set_user, only: [:new, :create]
 
   def new

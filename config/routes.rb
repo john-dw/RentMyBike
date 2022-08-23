@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   end
 
   resources :bookings, except: [:new, :create] do
-    resources :reviews, only: [:new, :create, :destroy, :show]
+    resources :reviews, only: [:new, :create, :show]
   end
-
+  resources :reviews, only: [:destroy]
 end
