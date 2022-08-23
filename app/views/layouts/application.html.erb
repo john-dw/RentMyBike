@@ -13,8 +13,6 @@
   <body>
   <%= render "shared/navbar" %>
     <%= yield %>
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
     <%= render "shared/flashes" %>
   </body>
 
@@ -25,13 +23,15 @@
     <a href="#"><i class="fab fa-twitter"></i></a>
   </div>
   <div class="footer-copyright">
-    © 2022 RentMyBike, Inc. | <a href="/">Homepage</a> | <a href="/users/sign_in">Sign-in</a> | <a href="/users/sign_up">Sign-up</a>
+    © 2022 RentMyBike, Inc. | <a href="/">Homepage</a> |
       <% if user_signed_in? %>
             <%= link_to "My profile", dashboard_path %>
+            |
             <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete} %>
           </div>
       <% else %>
           <%= link_to "Login", new_user_session_path%>
+          |
           <%= link_to "Sign up", new_user_registration_path %>
       <% end %>
   </div>
