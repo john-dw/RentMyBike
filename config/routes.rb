@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'reviews/new'
+  get 'reviews/create'
+  get 'reviews/show'
+  get 'reviews/destroy'
   get 'bookings/accept'
   get 'bookings/reject'
   devise_for :users
