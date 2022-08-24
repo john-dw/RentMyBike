@@ -5,12 +5,14 @@ class ReviewsController < ApplicationController
 
   def new
     @review = Review.new
+    authorize @review
   end
 
   def create
     @review = Review.new(params_review)
     @review.user = @user
     @review.booking = @booking
+    authorize @review
     if @review.save!
       redirect_to dashboard_path(@review.booking)
     else
@@ -22,6 +24,7 @@ class ReviewsController < ApplicationController
   end
 
   def destroy
+    authorize @review
     @review.destroy
     redirect_to dashboard_path, status: :see_other
   end
