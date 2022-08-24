@@ -16,7 +16,7 @@ class BookingsController < ApplicationController
     @booking.status = "pending"
     @booking.total_price = (@booking.end_date - @booking.start_date) * @bike.price_per_day
     if @booking.save!
-      redirect_to bike_path(@bike)
+      redirect_to dashboard_path
     else
       render :new, status: :unprocessable_entity
     end
