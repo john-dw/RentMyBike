@@ -1,5 +1,5 @@
 class BikesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index, :show]
+  skip_before_action :authenticate_user!, only: %i[index show]
   before_action :find_bike, only: %i[show edit update destroy]
 
   def index
@@ -13,7 +13,9 @@ class BikesController < ApplicationController
   end
 
   def show
+    @booking = Booking.new
     authorize @bike
+    @marker = [{ lat: @bike.latitude, lng: @bike.longitude }]
   end
 
   def new
