@@ -1,13 +1,19 @@
-<h1>Bikes#index</h1>
-<p>Find me in app/views/bikes/index.html.erb</p>
+<h1>Bikes around you</h1>
+<div class=row>
+  <div class=col-6>
+    <div class="container">
+      <h3>Find a bike around you</h3>
+      <div class="cards-grid">
+        <%= render 'bikes/cards-grid', bikes: @bikes %>
+      </div>
+    </div>
+  </div>
 
-<ul>
-  <% @bikes.each do |bike| %>
-    <li><%= link_to bike.name, bike_path(bike) %></li>
-  <% end %>
-
-  <div style="width: 100%; height: 600px;"
-  data-controller="map"
-  data-map-markers-value="<%= @markers.to_json %>"
-  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
-</ul>
+  <div class=col-6>
+      <div style="width: 100%; height: 600px;"
+      data-controller="map"
+      data-map-markers-value="<%= @markers.to_json %>"
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+    </ul>
+  </div>
+</div>
