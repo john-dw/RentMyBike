@@ -10,6 +10,10 @@
       <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
     <% end %>
 
+    <%= f.input :description,
+                autofocus: true,
+                input_html: { autocomplete: "describe yourself" }%>
+    <%= f.input :photo, as: :file %>
     <%= f.input :password,
                 hint: "leave it blank if you don't want to change it",
                 required: false,
@@ -21,7 +25,6 @@
                 hint: "we need your current password to confirm your changes",
                 required: true,
                 input_html: { autocomplete: "current-password" } %>
-    <%= f.input :photo, as: :file %>
   </div>
 
   <div class="form-actions">
