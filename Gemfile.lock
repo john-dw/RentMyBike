@@ -120,6 +120,7 @@ GEM
     ffi (1.15.5)
     font-awesome-sass (6.1.2)
       sassc (~> 2.0)
+    geocoder (1.8.0)
     globalid (1.0.0)
       activesupport (>= 5.0)
     http-accept (1.7.0)
@@ -176,6 +177,8 @@ GEM
     public_suffix (5.0.0)
     puma (5.6.4)
       nio4r (~> 2.0)
+    pundit (2.2.0)
+      activesupport (>= 3.0.0)
     racc (1.6.0)
     rack (2.2.4)
     rack-test (2.0.2)
@@ -288,10 +291,12 @@ DEPENDENCIES
   devise
   dotenv-rails
   font-awesome-sass (~> 6.1)
+  geocoder
   jbuilder
   jsbundling-rails
   pg (~> 1.1)
   puma (~> 5.0)
+  pundit
   rails (~> 7.0.3, >= 7.0.3.1)
   sassc-rails
   selenium-webdriver
