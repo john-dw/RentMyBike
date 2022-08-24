@@ -8,7 +8,7 @@ class Bike < ApplicationRecord
   validates :location, presence: true
   validates :name, presence: true
   validates :model, presence: true
-  # validates :photo, presence: true
+  validates :photo, presence: true
 
   geocoded_by :location
   after_validation :geocode, if: :will_save_change_to_location?
