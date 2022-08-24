@@ -5,12 +5,14 @@ class BookingsController < ApplicationController
 
   def new
     @booking = Booking.new
+    authorize @booking
   end
 
   def create
     @booking = Booking.new(params_booking)
     @booking.bike = @bike
     @booking.user = @user
+    authorize @booking
     @booking.status = "pending"
     @booking.total_price = (@booking.end_date - @booking.start_date) * @bike.price_per_day
     if @booking.save!
@@ -22,10 +24,12 @@ class BookingsController < ApplicationController
 
   def accept
     @booking.status = "accepted"
+    authorize @booking
   end
 
   def reject
     @booking.status = "rejected"
+    authorize @booking
   end
 
   private

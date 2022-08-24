@@ -3,7 +3,7 @@ class BikesController < ApplicationController
   before_action :find_bike, only: %i[show edit update destroy]
 
   def index
-    @bikes = Bike.all
+    @bikes = policy_scope(Bike)
   end
 
   def show
@@ -26,9 +26,11 @@ class BikesController < ApplicationController
   end
 
   def edit
+    authorize @bike
   end
 
   def update
+    authorize @bike
     @bike.update(params_bike)
     redirect_to bike_path(@bike)
   end
@@ -36,6 +38,7 @@ class BikesController < ApplicationController
   def destroy
     @bike.destroy
     redirect_to bikes_path, status: :see_other
+    authorize @bike
   end
 
   private
