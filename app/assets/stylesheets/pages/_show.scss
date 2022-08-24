@@ -1,0 +1,23 @@
+.bike-picture img {
+  width: 100%;
+  margin: auto;
+  object-fit: cover;
+  height: 400px;
+  border-radius: 10px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  overflow: hidden;
+}
+
+.owner-infos {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 15px;
+  margin-bottom: 30px;}
+
+.bike-page-infos {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
