@@ -2,3 +2,5 @@
 <p>Find me in app/views/bikes/show.html.erb</p>
 
 <%= link_to "delete this bike", bike_path(@bike), class: "btn btn-cancel", data: {turbo_method: :delete ,confirm: "Are you sure you want to delete this bike?" } if policy(@bike).destroy? %>
+
+<%= render "reviews/show", review: @review %>
