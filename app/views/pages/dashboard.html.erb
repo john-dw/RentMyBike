@@ -38,7 +38,7 @@
                   <% Booking.where(user_id: current_user).each do |booking|%>
                     <%if booking.status == "accepted"%>
                         <div class="card-bike">
-                        <%= cl_image_tag booking.bike.photo.key, height: 300, width: 400, crop: :fill %>
+                        <%= cl_image_tag booking.bike.photo.key, height: 300, width: 400, crop: :fill, style:"object-fit: contain;" %>
                           <div class="card-bike-infos" style="display:flex; flex-direction:column; align-items:flex-start;">
                             <div class="card-info" style="height: auto;">
                               <span><strong>From: </strong><%= booking.start_date %></span>
@@ -73,7 +73,7 @@
                   <% Booking.where(user_id: current_user).each do |booking|%>
                     <%if booking.status == "pending"%>
                         <div class="card-bike">
-                        <%= cl_image_tag booking.bike.photo.key, height: 300, width: 400, crop: :fill %>
+                        <%= cl_image_tag booking.bike.photo.key, height: 300, width: 400, crop: :fill, style:"object-fit: contain;" %>
                           <div class="card-bike-infos" style="display:flex; flex-direction:column; align-items:flex-start;">
                             <div class="card-info" style="height: auto;">
                               <span><strong>From: </strong><%= booking.start_date %></span>
@@ -101,7 +101,7 @@
                   <% Booking.where(user_id: current_user).each do |booking|%>
                     <%if booking.status == "rejected"%>
                         <div class="card-bike">
-                        <%= cl_image_tag booking.bike.photo.key, height: 300, width: 400, crop: :fill %>
+                        <%= cl_image_tag booking.bike.photo.key, height: 300, width: 400, crop: :fill, style:"object-fit: contain;" %>
                           <div class="card-bike-infos" style="display:flex; flex-direction:column; align-items:flex-start;">
                             <div class="card-info" style="height: auto;">
                               <span><strong>From: </strong><%= booking.start_date %></span>
@@ -127,7 +127,7 @@
                 <% Bike.where(user_id: current_user).each do |bike|%>
                   <%= link_to bike_path(bike) do %>
                     <div class="card-bike">
-                      <%= cl_image_tag bike.photo.key, height: 300, width: 400, crop: :fill %>
+                      <%= cl_image_tag bike.photo.key, height: 300, width: 400, crop: :fill, style:"object-fit: contain;" %>
                         <div class="card-bike-infos ">
                           <div class="card-info">
                             <h2 class="text-ellipsis"><%= bike.model %></h2>
@@ -151,7 +151,7 @@
                   <% @requests.each do |request|%>
                   <%if request.status == "pending"%>
                   <div class="card-bike">
-                    <%= cl_image_tag request.bike.photo.key, height: 300, width: 400, crop: :fill %>
+                    <%= cl_image_tag request.bike.photo.key, height: 300, width: 400, crop: :fill, style:"object-fit: contain;" %>
                         <div class="card-content">
                           <div class="card-bike-infos" style="display:flex; flex-direction:column; align-items:flex-start;">
                             <div class="card-info" style="height: auto;">
@@ -181,7 +181,7 @@
                       <% @requests.each do |request|%>
                       <%if request.status == "accepted"%>
                       <div class="card-bike">
-                        <%= cl_image_tag request.bike.photo.key, height: 300, width: 400, crop: :fill %>
+                        <%= cl_image_tag request.bike.photo.key, height: 300, width: 400, crop: :fill, style:"object-fit: contain;" %>
                           <div class="card-bike-infos ">
                             <div class="card-info" style="height: auto;">
                               <span><strong>Requesting user: </strong><%= request.user.username %></span>
@@ -206,7 +206,7 @@
                   <% @requests.each do |request|%>
                   <%if request.status == "rejected"%>
                   <div class="card-bike">
-                    <%= cl_image_tag request.bike.photo.key, height: 300, width: 400, crop: :fill %>
+                    <%= cl_image_tag request.bike.photo.key, height: 300, width: 400, crop: :fill, style:"object-fit: contain;" %>
                       <div class="card-bike-infos ">
                         <div class="card-info" style="height: auto;">
                           <span><strong>Requesting user: </strong><%= request.user.username %></span>
