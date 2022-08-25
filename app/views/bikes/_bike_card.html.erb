@@ -12,6 +12,9 @@
         <p class="text-ellipsis--2"><%= bike.description %></p>
       </div>
       <h2 class="card-trip-pricing">€<%= bike.price_per_day %> / day</h2>
+      <% if bike.user.photo.attached? %>
+        <%= cl_image_tag bike.user.photo.key, crop: :fill, class: "card-bike-user avatar-bordered" %>
+      <% end %>
     </div>
   </div>
 <% end %>
