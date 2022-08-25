@@ -7,5 +7,12 @@ class PagesController < ApplicationController
   end
 
   def dashboard
+    @requests = current_user.bikes.map(&:bookings).flatten
+    @requests.each do |request|
+      if request.end_date < Date.today && request.status == "accepted"
+        request.status = "passed"
+        request.save!
+      end
+    end
   end
 end
