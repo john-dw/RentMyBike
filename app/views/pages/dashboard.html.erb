@@ -52,6 +52,13 @@
                             <div style="display:flex; justify-content:center; width:100%;margin-top:16px;">
                               <%= link_to "See bike", bike_path(booking.bike), class: "btn btn-primary", style:"border-radius:4px;width:100%;"%>
                             </div>
+                            <% unless booking.reviews.empty? %>
+                            <%= booking.reviews.first.comment %>
+                            <% else %>
+                              <% if booking.reviewable? && policy(booking).new? %>
+                                <%= render "reviews/new", booking: booking, review: Review.new %>
+                              <% end %>
+                            <% end %>
                           </div>
                         </div>
                     <%end%>
