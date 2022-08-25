@@ -1,4 +1,5 @@
 import { Controller } from "@hotwired/stimulus"
+import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder"
 
 // Connects to data-controller="map"
 export default class extends Controller {
@@ -44,5 +45,7 @@ export default class extends Controller {
     })
     this.map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 })
   }
+
+
 
 }
