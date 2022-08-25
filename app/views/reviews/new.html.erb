@@ -1,0 +1,5 @@
+<%= simple_form_for [@booking, @review] do |f| %>
+  <%= f.input :rating, collection: %i[ 1 2 3 4 5 ], input_html: {data: {controller: "star-rating"}} %>
+  <%= f.input :comment %>
+  <%= f.submit %>
+<% end %>
