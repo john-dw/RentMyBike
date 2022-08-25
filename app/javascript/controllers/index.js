@@ -4,6 +4,8 @@
 
 import { application } from "./application"
 
+import ComputePriceController from "./compute_price_controller"
+application.register("compute-price", ComputePriceController)
 import AddressAutocompleteController from "./address_autocomplete_controller"
 application.register("address-autocomplete", AddressAutocompleteController)
 
