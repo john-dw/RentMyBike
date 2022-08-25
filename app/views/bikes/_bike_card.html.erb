@@ -1,0 +1,20 @@
+<%= link_to bike_path(bike) do %>
+  <div class="card-bike">
+  <% if bike.photo.attached? %>
+    <%= cl_image_tag bike.photo.key, height: 300, width: 400, crop: :limit, class:'bike_pic'%>
+  <% else %>
+    <%= image_tag("bike_logo") %>
+  <% end %>
+    <div class="card-bike-infos ">
+      <div class="card-info">
+        <h2 class="text-ellipsis"><%= bike.model %></h2>
+        <span><%= bike.location %></span>
+        <p class="text-ellipsis--2"><%= bike.description %></p>
+      </div>
+      <h2 class="card-trip-pricing">€<%= bike.price_per_day %> / day</h2>
+      <% if bike.user.photo.attached? %>
+        <%= cl_image_tag bike.user.photo.key, crop: :fill, class: "card-bike-user avatar-bordered" %>
+      <% end %>
+    </div>
+  </div>
+<% end %>

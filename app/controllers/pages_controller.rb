@@ -7,5 +7,7 @@ class PagesController < ApplicationController
   end
 
   def dashboard
+    @requests = current_user.bikes.map(&:bookings).flatten
+    @review = Review.new
   end
 end

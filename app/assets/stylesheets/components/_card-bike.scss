@@ -2,12 +2,14 @@
   overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  width: 100%;
 }
 
 .card-bike>img {
   height: 200px;
   width: 100%;
-  object-fit: cover;
+  object-fit: contain;
+  padding: 5px;
 }
 
 .card-bike h2 {

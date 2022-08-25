@@ -4,8 +4,15 @@ class ReviewsController < ApplicationController
   before_action :set_user, only: [:new, :create]
 
   def new
-    @review = Review.new
     authorize @review
+    @review.booking = @booking
+    @review.user = @user
+    @review = Review.new
+    if @booking.status == "passed"
+      @review = Review.new
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def create
@@ -14,6 +21,7 @@ class ReviewsController < ApplicationController
     @review.booking = @booking
     authorize @review
     if @review.save!
+      flash[:notice] = "Your review has successfully been submitted"
       redirect_to dashboard_path(@review.booking)
     else
       render :new, status: :unprocessable_entity
