@@ -10,3 +10,24 @@
 .navbar-lewagon .navbar-brand img {
   width: 40px;
 }
+
+#navbar_see_bikes{
+  position:absolute;
+  top:11px;
+  border-color: #fc7c6c;
+  border-style: solid, 2px;
+  color: #fc7c6c;
+  font-weight: 600;
+}
+
+
+#navbar_see_bikes:hover{
+  position:absolute;
+  top:11px;
+  border-color: #fc7c6c;
+  border-style: solid, 2px;
+  color: white;
+  background-color:#fc7c6c ;
+  font-weight: bold;
+  transition: all 0.5s
+}
