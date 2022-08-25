@@ -1,13 +1,3 @@
-// Graphical variables
-@import "config/fonts";
-@import "config/colors";
-@import "config/bootstrap_variables";
-
-// External libraries
-@import "bootstrap/scss/bootstrap";
-@import "font-awesome";
-@import "@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder";
-
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
@@ -17,6 +7,16 @@
 @import "components/address_autocomplete";
 @import "star-rating.js/dist/star-rating.css";
 
+// Graphical variables
+@import "config/fonts";
+@import "config/colors";
+@import "config/bootstrap_variables";
+
+// External libraries
+@import "font-awesome";
+@import "@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder";
+@import "bootstrap/scss/bootstrap";
+
 a {
   text-decoration: none;
   color: inherit;
@@ -25,4 +25,9 @@ a {
 a:hover {
   text-decoration: none;
   color: inherit;
+}
+
+.add-margin{
+  margin: 20px !important;
+  padding: 0 10px !important;
 }
