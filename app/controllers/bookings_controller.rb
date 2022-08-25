@@ -3,6 +3,11 @@ class BookingsController < ApplicationController
   before_action :set_user, only: [:new, :create]
   before_action :set_booking, only: [:accept, :reject]
 
+  def index
+    @bookings = policy_scope(Booking).where(user_id: current_user)
+      
+  end
+
   def new
     @booking = Booking.new
     authorize @booking
