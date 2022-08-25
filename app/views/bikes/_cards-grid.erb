@@ -1,7 +1,11 @@
 <% @bikes.each do |bike| %>
       <%= link_to bike_path(bike) do %>
         <div class="card-bike">
-        <%= cl_image_tag bike.photo.key, height: 300, width: 400, crop: :fill %>
+        <% if bike.photo.attached? %>
+          <%= cl_image_tag bike.photo.key, height: 300, width: 400, crop: :fill %>
+        <% else %>
+          <%= image_tag("logo") %>
+        <% end %>
           <div class="card-bike-infos ">
             <div class="card-info">
               <h2 class="text-ellipsis"><%= bike.model %></h2>

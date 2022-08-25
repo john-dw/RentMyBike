@@ -5,6 +5,10 @@
   padding-bottom: 25px;
 }
 
+.index .cards-grid {
+  grid-template-columns: 1fr 1fr;
+}
+
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
   .cards-grid {
