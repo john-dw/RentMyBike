@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  get 'bookings/accept'
-  get 'bookings/reject'
+  get 'bookings/:id/accept', to: "bookings#accept", as: :accept
+  get 'bookings/:id/reject', to: "bookings#reject", as: :reject
   get "dashboard", to: "pages#dashboard"
   devise_for :users
   root to: "pages#home"
