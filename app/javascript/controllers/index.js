@@ -4,6 +4,9 @@
 
 import { application } from "./application"
 
+import ComputePriceController from "./compute_price_controller"
+application.register("compute-price", ComputePriceController)
+
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
