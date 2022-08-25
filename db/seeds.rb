@@ -7,6 +7,9 @@
 #   Character.create(name: "Luke", movie: movies.first)
 require "open-uri"
 
+Bike.destroy_all
+User.destroy_all
+
 @jeremy = User.new(username: "jeremy", email: "jeremy@bike.com", password: "password", description: "This is me. I love bikes")
 file = URI.open("https://avatars.githubusercontent.com/u/108180668?v=4")
 @jeremy.photo.attach(io: file, filename: "jeremy.png", content_type: "image/png")
