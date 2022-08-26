@@ -1,8 +1,13 @@
 <%# Displaying bike and owner infos %>
 <div class="container" style="padding: 30px 100px 30px 100px">
-  <h1><%= @bike.name %></h1>
-  <h5>Model: <%= @bike.model %></h5>
-  <h5><%= @bike.location %></h5>
+  <div class="bike-header">
+    <div>
+      <h1><%= @bike.name %></h1>
+      <h5><%= @bike.model %></h5>
+      <h5><%= @bike.location %></h5>
+    </div>
+    <button type="button" class="btn btn-outline-dark back-btn"><%= link_to "See all bikes", bikes_path %></button>
+  </div>
   <div class="bike-picture">
     <% if @bike.photo.attached? %>
       <%= cl_image_tag @bike.photo.key, crop: :fill %>
@@ -17,8 +22,8 @@
         <% end %>
       </div>
       <div>
-        <p>Category: <%= @bike.category %></p>
-        <p>Model: <%= @bike.model %></p>
+        <p><strong>Category: </strong><%= @bike.category %></p>
+        <p><strong>Model: </strong><%= @bike.model %></p>
         <p><%= @bike.description %></p>
       </div>
     </div>
@@ -38,13 +43,13 @@
             :target => "compute-price.endDate",
             :action => "change->compute-price#compute"} } %>
           <div class="d-grid gap-2 p-1">
-            <%= f.submit value: "Book now", class: "booking-button btn btn-primary pink-btn mb-2" %>
+            <%= f.submit value: "Book now", class: "booking-button btn pink-btn mb-2" %>
           </div>
         <% end %>
         <div class="pricing d-none" data-compute-price-target="pricingBlock">
           <div class="price-container p-1">
             <div class="day-price">
-              <span class="price-per-day"><%= @bike.price_per_day %></span>
+              <span class="price-per-day"><%= @bike.price_per_day %>€</span>
               <span data-compute-price-target="numberOfDays"></span>
             </div>
             <div class="total-price">
@@ -56,6 +61,44 @@
     </div>
 </div>
 
+<%# Displaying reviews %>
+    <div class="bike-reviews border-bottom" style="padding-top: 35px; padding-bottom: 25px">
+      <h4><strong>Reviews</strong></h4>
+      <ul class="list-group">
+        <% @bike.bookings.each do |booking| %>
+          <% if !booking.reviews.empty? %>
+            <div class="user-review-container">
+              <div class="user-review-info">
+                <div>
+                  <li>
+                    <% if booking.reviews.first.user.photo.attached? %>
+                      <%= cl_image_tag booking.reviews.first.user.photo.key, crop: :fill, class: "avatar-bordered" %>
+                    <% end %>
+                  </li>
+                </div>
+                <div style="padding-left: 15px">
+                  <li><strong><%= booking.reviews.first.user.username %></strong></li>
+                  <li><%= booking.reviews.first.comment %></li>
+                </div>
+              </div>
+              <div class="star-rating">
+                <% unless booking.reviews.empty? %>
+                  <div class="container">
+                    <div style="display:flex;">
+                      <% booking.reviews.first.rating.times do %>
+                        <span class="fa fa-star checked"></span>
+                      <% end %>
+                    </div>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+            <br>
+          <% end %>
+        <% end %>
+      </ul>
+    </div>
+
 <%# Displaying map %>
     <div class="bike-map" style="padding-top: 35px; padding-bottom: 25px">
       <div class="bike-map-infos" style="padding-bottom: 15px">
@@ -64,7 +107,7 @@
       </div>
       <div style="width: 100%; height: 300px; border-radius: 10px"
         data-controller="map"
-        data-map-markers-value="<%= @marker.to_json %>"
+        data-map-markers-value="<%= @markers.to_json %>"
         data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
       </div>
     </div>

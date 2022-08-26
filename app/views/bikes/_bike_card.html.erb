@@ -8,8 +8,8 @@
     <div class="card-bike-infos ">
       <div class="card-info">
         <h2 class="text-ellipsis"><%= bike.model %></h2>
-        <span><%= bike.location %></span>
-        <p class="text-ellipsis--2"><%= bike.description %></p>
+        <span><i class="fa-solid fa-location-dot"></i> <%= bike.location %></span>
+        <%# <p class="text-ellipsis--2"><%= bike.description %></p>
       </div>
       <h2 class="card-trip-pricing">€<%= bike.price_per_day %> / day</h2>
       <% if bike.user.photo.attached? %>
