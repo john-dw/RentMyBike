@@ -1,0 +1,42 @@
+.nav-pills .nav-link.active {
+  background-color: #fc7c6c !important;
+  color: white !important;
+  font-weight: bold !important;
+}
+
+.nav-link {
+  color: #fc7c6c !important;
+  font-weight: bold !important;
+}
+
+.btn-accept {
+  color: white;
+  background-color: #fc7c6c;
+  border-color: #fc7c6c;
+  font-weight: bold;
+  padding: 6px 24px;
+}
+
+.btn-reject {
+  color: #fc7c6c;
+  background-color: white;
+  border-color: #fc7c6c;
+  font-weight: bold;
+  padding: 6px 24px;
+}
+
+.btn-reject:hover {
+  color: white;
+  background-color: #fc7c6c;
+  border-color: #fc7c6c;
+}
+
+.btn-accept:hover {
+  color: #fc7c6c;
+  background-color: white;
+  border-color: #fc7c6c;
+}
+
+.checked {
+  color: #fc7c6c;
+}
