@@ -86,7 +86,7 @@ file = URI.open("https://cdn.shopify.com/s/files/1/0232/3305/products/state_bicy
 @review2_booking1 = Review.new(user_id: @john.id, booking_id: Booking.last.id, comment: "Too old and too heavy", rating: 1)
 @review2_booking1.save!
 
-@booking2_bike1 = Booking.new(bike_id: @jeannoel.id, user_id: @clemence.id, start_date: Date.new(2022, 9, 29), end_date: Date.new(2022, 10, 12), status: "pending")
+@booking2_bike1 = Booking.new(bike_id: Bike.last.id, user_id: @clemence.id, start_date: Date.new(2022, 9, 29), end_date: Date.new(2022, 10, 12), status: "pending")
 @booking2_bike1.save!
 
 @bike2 = Bike.new(category: "City", price_per_day: 20 , location: "12 rue soyer Neuilly-sur-Seine" , name: "Fixie bike", description: "For middle-aged bobos nostalgic of the 2010s years.", model: "Bobo novice", user_id: @jeremy.id)
