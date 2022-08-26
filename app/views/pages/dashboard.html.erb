@@ -30,6 +30,34 @@
               </ul>
             </div>
             <div class="tab-pane fade show active" id="tabs-my-bookings" role="tabpanel" aria-labelledby="tabs-my-bookings-tab">
+            <h2>Pending bookings</h2>
+              <div class="cards-grid">
+              <%if Booking.where(user_id: current_user).select{|booking| booking.status == "pending"}.empty?%>
+                  <p>There are no pending bookings.</p>
+              <% else %>
+                  <% Booking.where(user_id: current_user).each do |booking|%>
+                    <%if booking.status == "pending"%>
+                        <div class="card-bike">
+                        <%= cl_image_tag booking.bike.photo.key, height: 300, crop: :fill, style:"object-fit: contain;" %>
+                          <div class="card-bike-infos" style="display:flex; flex-direction:column; align-items:flex-start;">
+                            <div class="card-info" style="height: auto;">
+                              <span><strong>From: </strong><%= booking.start_date %></span>
+                              <span><strong>To: </strong><%= booking.end_date %></span>
+                              <span><strong>Location: </strong><%= booking.bike.location %></span>
+                              <span><strong>Model: </strong><%= booking.bike.model %></span>
+                              <span><strong>Category: </strong><%= booking.bike.category %></span>
+                              <span><strong>Total price: </strong><%= booking.total_price %> €</span>
+                              <span><strong>Status: </strong><%= booking.status %></span>
+                            </div>
+                              <div style="display:flex; justify-content:center; width:100%;margin-top:16px;">
+                              <%= link_to "See bike", bike_path(booking.bike), class: "btn pink-btn", style:"border-radius:4px;width:100%;"%>
+                            </div>
+                          </div>
+                        </div>
+                    <%end%>
+                  <%end%>
+                <%end%>
+              </div>
               <h2>Accepted bookings</h2>
               <div class="cards-grid">
               <%if Booking.where(user_id: current_user).select{|booking| booking.status == "accepted"}.empty?%>
@@ -68,34 +96,6 @@
                                 <%= render "reviews/new", booking: booking, review: Review.new %>
                               <% end %>
                             <% end %>
-                          </div>
-                        </div>
-                    <%end%>
-                  <%end%>
-                <%end%>
-              </div>
-            <h2>Pending bookings</h2>
-              <div class="cards-grid">
-              <%if Booking.where(user_id: current_user).select{|booking| booking.status == "pending"}.empty?%>
-                  <p>There are no pending bookings.</p>
-              <% else %>
-                  <% Booking.where(user_id: current_user).each do |booking|%>
-                    <%if booking.status == "pending"%>
-                        <div class="card-bike">
-                        <%= cl_image_tag booking.bike.photo.key, height: 300, crop: :fill, style:"object-fit: contain;" %>
-                          <div class="card-bike-infos" style="display:flex; flex-direction:column; align-items:flex-start;">
-                            <div class="card-info" style="height: auto;">
-                              <span><strong>From: </strong><%= booking.start_date %></span>
-                              <span><strong>To: </strong><%= booking.end_date %></span>
-                              <span><strong>Location: </strong><%= booking.bike.location %></span>
-                              <span><strong>Model: </strong><%= booking.bike.model %></span>
-                              <span><strong>Category: </strong><%= booking.bike.category %></span>
-                              <span><strong>Total price: </strong><%= booking.total_price %> €</span>
-                              <span><strong>Status: </strong><%= booking.status %></span>
-                            </div>
-                              <div style="display:flex; justify-content:center; width:100%;margin-top:16px;">
-                              <%= link_to "See bike", bike_path(booking.bike), class: "btn pink-btn", style:"border-radius:4px;width:100%;"%>
-                            </div>
                           </div>
                         </div>
                     <%end%>
