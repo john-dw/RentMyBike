@@ -25,7 +25,7 @@ export default class extends Controller {
       this.pricingBlockTarget.classList.remove('d-none');
       this.pricePerDayTarget.innerText = `${pricePerDay}€`;
       this.numberOfDaysTarget.innerText = `x ${totalDays} ${dayWording}`;
-      this.totalPriceTarget.innerText = `${totalPrice}€`;
+      this.totalPriceTarget.innerHTML = `<strong>Total price: ${totalPrice}€</strong>`;
     }
   }
 }
