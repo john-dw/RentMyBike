@@ -9,9 +9,9 @@ require "open-uri"
 require "date"
 
 Review.destroy_all
+Booking.destroy_all
 Bike.destroy_all
 User.destroy_all
-Booking.destroy_all
 
 print "Creating Jeremy..."
 
