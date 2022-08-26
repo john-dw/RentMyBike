@@ -17,7 +17,14 @@ class BikesController < ApplicationController
   def show
     @booking = Booking.new
     authorize @bike
-    @marker = [{ lat: @bike.latitude, lng: @bike.longitude }]
+    @markers = [ {
+      lat: @bike.latitude,
+      lng: @bike.longitude,
+      info_window: render_to_string(partial: "info_window", locals: {bike: @bike}),
+      image_url: helpers.asset_url("logo-pin-map")
+    }]
+
+    # @marker = [{ lat: @bike.latitude, lng: @bike.longitude }]
   end
 
   def new
