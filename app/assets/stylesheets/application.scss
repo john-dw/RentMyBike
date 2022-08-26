@@ -26,3 +26,7 @@ a:hover {
   text-decoration: none;
   color: inherit;
 }
+
+.main-body-container {
+  min-height: calc(100vh - 100px - 50px);
+}
