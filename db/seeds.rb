@@ -42,7 +42,7 @@ file = URI.open("https://www.velo-on-line.fr/672-zoom_default/tricycle-tc-1.jpg"
 @bike1.photo.attach(io: file, filename: "bike3.png", content_type: "image/png")
 @bike1.save!
 
-@booking1_bike1 = Booking.new(bike_id: Bike.last.id, user_id: @jeremy.id, start_date: Date.new(2020, 3, 25), end_date: Date.new(2020, 5, 12), status: "accepted")
+@booking1_bike1 = Booking.new(bike_id: Bike.last.id, user_id: @jeremy.id, start_date: Date.new(2020, 3, 25), end_date: Date.new(2020, 5, 12), status: "accepted", total_price: 20)
 @booking1_bike1.save!
 
 @review1_booking1 = Review.new(user_id: @jeremy.id, booking_id: Booking.last.id, comment: "Very cool bike", rating: 3)
@@ -51,7 +51,7 @@ file = URI.open("https://www.velo-on-line.fr/672-zoom_default/tricycle-tc-1.jpg"
 @review2_booking1 = Review.new(user_id: @jeannoel.id, booking_id: Booking.last.id, comment: "Very good bike, I recommand it", rating: 4)
 @review2_booking1.save!
 
-@booking2_bike1 = Booking.new(bike_id: Bike.last.id, user_id: @jeannoel.id, start_date: Date.new(2022, 10, 29), end_date: Date.new(2022, 11, 12), status: "pending")
+@booking2_bike1 = Booking.new(bike_id: Bike.last.id, user_id: @jeannoel.id, start_date: Date.new(2022, 10, 29), end_date: Date.new(2022, 11, 12), status: "pending", total_price: 320)
 @booking2_bike1.save!
 
 @bike2 = Bike.new(category: "City", price_per_day: 15 , location: "56 boulevard saint-michel paris" , name: "Unicycle bike", description: "Unbalanced. Beware, this bike is not suitable for everyone.", model: "Unicycle bike", user_id: @clemence.id)
@@ -59,7 +59,7 @@ file = URI.open("https://storage.googleapis.com/tradeinn-images/images/products_
 @bike2.photo.attach(io: file, filename: "bike4.png", content_type: "image/png")
 @bike2.save!
 
-@booking1_bike2 = Booking.new(bike_id: Bike.last.id, user_id: @jeannoel.id, start_date: Date.new(2021, 4, 25), end_date: Date.new(2021, 5, 12), status: "accepted")
+@booking1_bike2 = Booking.new(bike_id: Bike.last.id, user_id: @jeannoel.id, start_date: Date.new(2021, 4, 25), end_date: Date.new(2021, 5, 12), status: "accepted", total_price: 180)
 @booking1_bike2.save!
 
 @review1_booking1 = Review.new(user_id: @jeannoel.id, booking_id: Booking.last.id, comment: "Too heavy, not worth it!", rating: 2)
@@ -68,7 +68,7 @@ file = URI.open("https://storage.googleapis.com/tradeinn-images/images/products_
 @review2_booking2 = Review.new(user_id: @john.id, booking_id: Booking.last.id, comment: "Super bike, we had a blast", rating: 4)
 @review2_booking2.save!
 
-@booking2_bike2 = Booking.new(bike_id: Bike.last.id, user_id: @clemence.id, start_date: Date.new(2022, 11, 29), end_date: Date.new(2022, 11, 30), status: "pending")
+@booking2_bike2 = Booking.new(bike_id: Bike.last.id, user_id: @clemence.id, start_date: Date.new(2022, 11, 29), end_date: Date.new(2022, 11, 30), status: "pending", total_price: 20)
 @booking2_bike2.save!
 
 
@@ -77,7 +77,7 @@ file = URI.open("https://cdn.shopify.com/s/files/1/0232/3305/products/state_bicy
 @bike1.photo.attach(io: file, filename: "bike1.png", content_type: "image/png")
 @bike1.save!
 
-@booking1_bike1 = Booking.new(bike_id: Bike.last.id, user_id: @jeannoel.id, start_date: Date.new(2021, 2, 25), end_date: Date.new(2021, 3, 12), status: "accepted")
+@booking1_bike1 = Booking.new(bike_id: Bike.last.id, user_id: @jeannoel.id, start_date: Date.new(2021, 2, 25), end_date: Date.new(2021, 3, 12), status: "accepted", total_price: 225)
 @booking1_bike1.save!
 
 @review1_booking1 = Review.new(user_id: @jeannoel.id, booking_id: Booking.last.id, comment: "I will rent it again!", rating: 4)
@@ -86,7 +86,7 @@ file = URI.open("https://cdn.shopify.com/s/files/1/0232/3305/products/state_bicy
 @review2_booking1 = Review.new(user_id: @john.id, booking_id: Booking.last.id, comment: "Too old and too heavy", rating: 1)
 @review2_booking1.save!
 
-@booking2_bike1 = Booking.new(bike_id: Bike.last.id, user_id: @clemence.id, start_date: Date.new(2022, 9, 29), end_date: Date.new(2022, 10, 12), status: "pending")
+@booking2_bike1 = Booking.new(bike_id: Bike.last.id, user_id: @clemence.id, start_date: Date.new(2022, 9, 29), end_date: Date.new(2022, 10, 12), status: "pending", total_price: 155)
 @booking2_bike1.save!
 
 @bike2 = Bike.new(category: "City", price_per_day: 20 , location: "12 rue soyer Neuilly-sur-Seine" , name: "Fixie bike", description: "For middle-aged bobos nostalgic of the 2010s years.", model: "Bobo novice", user_id: @jeremy.id)
@@ -94,7 +94,7 @@ file = URI.open("https://thefixedgearshop.fr/wp-content/uploads/2019/09/state_bi
 @bike2.photo.attach(io: file, filename: "bike1.png", content_type: "image/png")
 @bike2.save!
 
-@booking1_bike2 = Booking.new(bike_id: Bike.last.id, user_id: @clemence.id, start_date: Date.new(2021, 2, 25), end_date: Date.new(2021, 3, 12), status: "accepted")
+@booking1_bike2 = Booking.new(bike_id: Bike.last.id, user_id: @clemence.id, start_date: Date.new(2021, 2, 25), end_date: Date.new(2021, 3, 12), status: "accepted", total_price: 235)
 @booking1_bike2.save!
 
 @review1_booking1 = Review.new(user_id: @clemence.id, booking_id: Booking.last.id, comment: "Great great great", rating: 5)
@@ -103,7 +103,7 @@ file = URI.open("https://thefixedgearshop.fr/wp-content/uploads/2019/09/state_bi
 @review2_booking1 = Review.new(user_id: @jeannoel.id, booking_id: Booking.last.id, comment: "Not so good, disappointed", rating: 2)
 @review2_booking1.save!
 
-@booking2_bike2 = Booking.new(bike_id: Bike.last.id, user_id: @john.id, start_date: Date.new(2022, 9, 29), end_date: Date.new(2022, 10, 12), status: "pending")
+@booking2_bike2 = Booking.new(bike_id: Bike.last.id, user_id: @john.id, start_date: Date.new(2022, 9, 29), end_date: Date.new(2022, 10, 12), status: "pending", total_price: 176)
 @booking2_bike2.save!
 
 @bike1 = Bike.new(category: "City", price_per_day: 36 , location: "12 rue du colisée paris" , name: "Supercycle bike", description: "Big, can roll over anything.", model: "Supercycle WR100", user_id: @jeannoel.id)
@@ -111,7 +111,7 @@ file = URI.open("https://media-www.canadiantire.ca/product/playing/cycling/bicyc
 @bike1.photo.attach(io: file, filename: "bike5.png", content_type: "image/png")
 @bike1.save!
 
-@booking1_bike1 = Booking.new(bike_id: Bike.last.id, user_id: @clemence.id, start_date: Date.new(2021, 2, 25), end_date: Date.new(2021, 3, 12), status: "accepted")
+@booking1_bike1 = Booking.new(bike_id: Bike.last.id, user_id: @clemence.id, start_date: Date.new(2021, 2, 25), end_date: Date.new(2021, 3, 12), status: "accepted", total_price: 265)
 @booking1_bike1.save!
 
 @review1_booking1 = Review.new(user_id: @clemence.id, booking_id: Booking.last.id, comment: "Will rent it again", rating: 5)
@@ -120,7 +120,7 @@ file = URI.open("https://media-www.canadiantire.ca/product/playing/cycling/bicyc
 @review2_booking1 = Review.new(user_id: @john.id, booking_id: Booking.last.id, comment: "Very good, I recommand", rating: 4)
 @review2_booking1.save!
 
-@booking2_bike1 = Booking.new(bike_id: Bike.last.id, user_id: @clemence.id, start_date: Date.new(2022, 9, 29), end_date: Date.new(2022, 10, 12), status: "pending")
+@booking2_bike1 = Booking.new(bike_id: Bike.last.id, user_id: @clemence.id, start_date: Date.new(2022, 9, 29), end_date: Date.new(2022, 10, 12), status: "pending", total_price: 320)
 @booking2_bike1.save!
 
 @bike2 = Bike.new(category: "Touring", price_per_day: 34 , location: "Place des victoires paris" , name: "Race bicycle", description: "Very fast", model: "Carbon bike", user_id: @jeannoel.id)
@@ -128,7 +128,7 @@ file = URI.open("https://cdn.rosebikes.de/cms/cms.61c20b48d30c78.97094843.jpg?im
 @bike2.photo.attach(io: file, filename: "bike6.png", content_type: "image/png")
 @bike2.save!
 
-@booking1_bike2 = Booking.new(bike_id: Bike.last.id, user_id: @john.id, start_date: Date.new(2021, 2, 25), end_date: Date.new(2021, 3, 12), status: "accepted")
+@booking1_bike2 = Booking.new(bike_id: Bike.last.id, user_id: @john.id, start_date: Date.new(2021, 2, 25), end_date: Date.new(2021, 3, 12), status: "accepted", total_price: 130)
 @booking1_bike2.save!
 
 @review1_booking1 = Review.new(user_id: @john.id, booking_id: Booking.last.id, comment: "Great bike!!!!", rating: 4)
@@ -137,7 +137,7 @@ file = URI.open("https://cdn.rosebikes.de/cms/cms.61c20b48d30c78.97094843.jpg?im
 @review2_booking1 = Review.new(user_id: @clemence.id, booking_id: Booking.last.id, comment: "Way too heavy", rating: 1)
 @review2_booking1.save!
 
-@booking2_bike2 = Booking.new(bike_id: Bike.last.id, user_id: @jeremy.id, start_date: Date.new(2022, 9, 29), end_date: Date.new(2022, 10, 12), status: "pending")
+@booking2_bike2 = Booking.new(bike_id: Bike.last.id, user_id: @jeremy.id, start_date: Date.new(2022, 9, 29), end_date: Date.new(2022, 10, 12), status: "pending", total_price: 75)
 @booking2_bike2.save!
 
 
@@ -146,7 +146,7 @@ file = URI.open("https://arc-anglerfish-eu-central-1-prod-leparisien.s3.amazonaw
 @bike1.photo.attach(io: file, filename: "bike5.png", content_type: "image/png")
 @bike1.save!
 
-@booking1_bike1 = Booking.new(bike_id: Bike.last.id, user_id: @jeannoel.id, start_date: Date.new(2021, 2, 25), end_date: Date.new(2021, 3, 12), status: "accepted")
+@booking1_bike1 = Booking.new(bike_id: Bike.last.id, user_id: @jeannoel.id, start_date: Date.new(2021, 2, 25), end_date: Date.new(2021, 3, 12), status: "accepted", total_price: 110)
 @booking1_bike1.save!
 
 @review1_booking1 = Review.new(user_id: @jeannoel.id, booking_id: Booking.last.id, comment: "Great bike, I will rent it again!!", rating: 4)
@@ -155,7 +155,7 @@ file = URI.open("https://arc-anglerfish-eu-central-1-prod-leparisien.s3.amazonaw
 @review2_booking1 = Review.new(user_id: @jeremy.id, booking_id: Booking.last.id, comment: "Not so good...", rating: 1)
 @review2_booking1.save!
 
-@booking2_bike1 = Booking.new(bike_id: Bike.last.id, user_id: @clemence.id, start_date: Date.new(2022, 9, 29), end_date: Date.new(2022, 10, 12), status: "pending")
+@booking2_bike1 = Booking.new(bike_id: Bike.last.id, user_id: @clemence.id, start_date: Date.new(2022, 9, 29), end_date: Date.new(2022, 10, 12), status: "pending", total_price: 95)
 @booking2_bike1.save!
 
 @bike2 = Bike.new(category: "City", price_per_day: 7 , location: "1 rue de la paix paris" , name: "Green Velib", description: "Very heavy bike. For courageous people.", model: "Normal Velib", user_id: @john.id)
@@ -163,7 +163,7 @@ file = URI.open("https://cityride.fr/wp-content/uploads/2017/10/20171025_082141.
 @bike2.photo.attach(io: file, filename: "bike6.png", content_type: "image/png")
 @bike2.save!
 
-@booking1_bike2 = Booking.new(bike_id: Bike.last.id, user_id: @jeremy.id, start_date: Date.new(2021, 4, 25), end_date: Date.new(2021, 5, 12), status: "accepted")
+@booking1_bike2 = Booking.new(bike_id: Bike.last.id, user_id: @jeremy.id, start_date: Date.new(2021, 4, 25), end_date: Date.new(2021, 5, 12), status: "accepted", total_price: 110)
 @booking1_bike2.save!
 
 @review1_booking1 = Review.new(user_id: @jeremy.id, booking_id: Booking.last.id, comment: "Too heavy, not recommanded", rating: 2)
@@ -172,7 +172,7 @@ file = URI.open("https://cityride.fr/wp-content/uploads/2017/10/20171025_082141.
 @review2_booking2 = Review.new(user_id: @clemence.id, booking_id: Booking.last.id, comment: "Very good one!!", rating: 4)
 @review2_booking2.save!
 
-@booking2_bike2 = Booking.new(bike_id: Bike.last.id, user_id: @jeannoel.id, start_date: Date.new(2022, 11, 29), end_date: Date.new(2022, 11, 30), status: "pending")
+@booking2_bike2 = Booking.new(bike_id: Bike.last.id, user_id: @jeannoel.id, start_date: Date.new(2022, 11, 29), end_date: Date.new(2022, 11, 30), status: "pending", total_price: 20)
 @booking2_bike2.save!
 
 puts "Seed successfully created!"
