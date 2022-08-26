@@ -6,26 +6,38 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 require "open-uri"
+require "date"
 
 Review.destroy_all
 Bike.destroy_all
 User.destroy_all
 Booking.destroy_all
 
+print "Creating Jeremy..."
+
 @jeremy = User.new(username: "jeremy", email: "jeremy@bike.com", password: "password", description: "This is me. I love bikes")
 file = URI.open("https://avatars.githubusercontent.com/u/108180668?v=4")
 @jeremy.photo.attach(io: file, filename: "jeremy.png", content_type: "image/png")
 @jeremy.save
+
+print "Creating bike1"
 
 @bike1 = Bike.new(category: "City", price_per_day: 24 , location: "16 villa gaudelet paris" , name: "Fixie bike upgraded", description: "You will look kinda cool with this bike", model: "Bobo master", user_id: User.last.id)
 file = URI.open("https://cdn.shopify.com/s/files/1/0232/3305/products/state_bicycle_4130_fixed_gear_matte_black_2.jpg")
 @bike1.photo.attach(io: file, filename: "bike1.png", content_type: "image/png")
 @bike1.save
 
+@booking1_bike1 = Booking.new(bike_id: Bike.last.id, user_id: User.last.id, start_date: Date.new(2021, 2, 25), end_date: Date.new(2021, 3, 12), status: "accepted")
+@booking1_bike1.save!
+
+@booking2_bike1 = Booking.new(bike_id: Bike.last.id, user_id: User.last.id, start_date: Date.new(2022, 3, 29), end_date: Date.new(2022, 4, 12), status: "accepted")
+@booking2_bike1.save!
+
 @bike2 = Bike.new(category: "City", price_per_day: 20 , location: "12 rue soyer Neuilly-sur-Seine" , name: "Fixie bike", description: "For middle-aged bobos nostalgic of the 2010s years.", model: "Bobo novice", user_id: User.last.id)
 file = URI.open("https://thefixedgearshop.fr/wp-content/uploads/2019/09/state_bicycle_fixie_rigby_bike_1.jpg")
 @bike2.photo.attach(io: file, filename: "bike1.png", content_type: "image/png")
 @bike2.save
+
 
 @clemence = User.new(username: "clemence", email: "clemence@bike.com", password: "password", description: "This is me. I love strange bikes.")
 file = URI.open("https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1657467718/epx2yy70xnkquezsx57y.jpg")
@@ -71,3 +83,5 @@ file = URI.open("https://arc-anglerfish-eu-central-1-prod-leparisien.s3.amazonaw
 file = URI.open("https://cityride.fr/wp-content/uploads/2017/10/20171025_082141.jpg")
 @bike2.photo.attach(io: file, filename: "bike6.png", content_type: "image/png")
 @bike2.save
+
+@booking_bike1
