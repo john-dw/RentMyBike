@@ -8,9 +8,9 @@
 require "open-uri"
 
 Review.destroy_all
+Booking.destroy_all
 Bike.destroy_all
 User.destroy_all
-Booking.destroy_all
 
 @jeremy = User.new(username: "jeremy", email: "jeremy@bike.com", password: "password", description: "This is me. I love bikes")
 file = URI.open("https://avatars.githubusercontent.com/u/108180668?v=4")

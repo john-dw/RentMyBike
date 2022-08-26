@@ -1,6 +1,6 @@
 class Booking < ApplicationRecord
-  belongs_to :bike
-  belongs_to :user
+  belongs_to :bike, dependent: :destroy
+  belongs_to :user, dependent: :destroy
   has_many :reviews
 
   validates :user_id, presence: true
