@@ -12,7 +12,9 @@
 }
 
 #navbar_see_bikes{
-  position:absolute;
+  position: absolute;
+  left:50%;
+  transform: translateX(-50%);
   top:11px;
   border-color: #fc7c6c;
   border-style: solid, 2px;
@@ -22,7 +24,7 @@
 
 
 #navbar_see_bikes:hover{
-  color: white;
+  color: white !important;
   background-color:#fc7c6c ;
   font-weight: bold;
   transition: all 0.5s
