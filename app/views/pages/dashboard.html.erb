@@ -134,21 +134,26 @@
             <div class="tab-pane fade" id="tabs-my-bikes" role="tabpanel" aria-labelledby="tabs-my-bikes-tab">
               <div class="cards-grid">
                 <% Bike.where(user_id: current_user).each do |bike|%>
-                  <%= link_to bike_path(bike) do %>
                     <div class="card-bike">
-                      <%= cl_image_tag bike.photo.key, height: 300, crop: :fill, style:"object-fit: contain;" %>
-                        <div class="card-bike-infos ">
-                          <div class="card-info">
-                            <h2 class="text-ellipsis"><%= bike.model %></h2>
-                            <span><%= bike.location %></span>
-                            <p class="text-ellipsis--2"><%= bike.description %></p>
+                        <%= cl_image_tag bike.photo.key, height: 300, crop: :fill, style:"object-fit: contain;" %>
+                          <div class="card-bike-infos" style="display:flex; flex-direction:column; align-items:flex-start;">
+                            <div class="card-info" style="height: auto;">
+                              <span><strong>Name: </strong><%= bike.name  %></span>
+                              <span><strong>Model: </strong><%= bike.model %></span>
+                              <span><strong>Location: </strong><%= bike.location %></span>
+                              <span><strong>Category: </strong><%= bike.category %></span>
+                              <span class="text-ellipsis"><strong>Description: </strong><%= bike.description %></span>
+                              <span><strong>Price per day: </strong><%= bike.price_per_day %> €</span>
+                            </div>
+                            <div style="display:flex; justify-content:center; width:100%;margin-top:16px;">
+                              <%= link_to "See bike", bike_path(bike), class: "btn btn-accept", style:"border-radius:4px;width:100%;"%>
+                            </div>
+                            <div style="display:flex; justify-content:center; width:100%;margin-top:8px;">
+                              <%= link_to "Edit bike", edit_bike_path(bike), class: "btn btn-reject", style:"border-radius:4px;width:100%;"%>
+                            </div>
                           </div>
-                          <h2 class="card-trip-pricing">€<%= bike.price_per_day %> / day</h2>
-                          <%# <%= cl_image_tag bike.user.photo.key, height: 300, crop: :fill %>
                         </div>
-                      </div>
-                    <% end %>
-                  <% end %>
+                <% end %>
               </div>
             </div>
             <div class="tab-pane fade" id="tabs-my-requests" role="tabpanel" aria-labelledby="tabs-my-requests-tab">
