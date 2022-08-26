@@ -66,33 +66,35 @@
       <h4><strong>Reviews</strong></h4>
       <ul class="list-group">
         <% @bike.bookings.each do |booking| %>
-          <div class="user-review-container">
-            <div class="user-review-info">
-              <div>
-                <li>
-                  <% if @bike.user.photo.attached? %>
-                    <%= cl_image_tag booking.reviews.first.user.photo.key, crop: :fill, class: "avatar-bordered" %>
-                  <% end %>
-                </li>
-              </div>
-              <div style="padding-left: 15px">
-                <li><strong><%= booking.reviews.first.user.username %></strong></li>
-                <li><%= booking.reviews.first.comment %></li>
-              </div>
-            </div>
-            <div class="star-rating">
-              <% unless booking.reviews.empty? %>
-                <div class="container">
-                  <div style="display:flex;">
-                    <% booking.reviews.first.rating.times do %>
-                      <span class="fa fa-star checked"></span>
+          <% if !booking.reviews.empty? %>
+            <div class="user-review-container">
+              <div class="user-review-info">
+                <div>
+                  <li>
+                    <% if booking.reviews.first.user.photo.attached? %>
+                      <%= cl_image_tag booking.reviews.first.user.photo.key, crop: :fill, class: "avatar-bordered" %>
                     <% end %>
-                  </div>
+                  </li>
                 </div>
-              <% end %>
+                <div style="padding-left: 15px">
+                  <li><strong><%= booking.reviews.first.user.username %></strong></li>
+                  <li><%= booking.reviews.first.comment %></li>
+                </div>
+              </div>
+              <div class="star-rating">
+                <% unless booking.reviews.empty? %>
+                  <div class="container">
+                    <div style="display:flex;">
+                      <% booking.reviews.first.rating.times do %>
+                        <span class="fa fa-star checked"></span>
+                      <% end %>
+                    </div>
+                  </div>
+                <% end %>
+              </div>
             </div>
-          </div>
-          <br>
+            <br>
+          <% end %>
         <% end %>
       </ul>
     </div>
